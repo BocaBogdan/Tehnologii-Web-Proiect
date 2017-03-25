@@ -1,0 +1,82 @@
+*{
+    margin: auto;
+    padding: 0;
+    background-color: black;
+}
+
+.div{
+    margin: auto;
+    width: 50%;
+    margin-top: 5%;
+}
+.header{
+    font-family: "Comic Sans MS";
+    font-size: 60px;
+    border: 3px solid white;
+    color: white;
+    border-radius: 25px 25px 0px 0px;
+    text-align: center;
+    padding-left: 2%;
+}
+.footer{
+    margin-top: 1%;
+    font-family: "Comic Sans MS";
+    border: 3px solid white;
+    border-radius: 0px 0px 25px 25px;
+    padding-top: 2%;
+    padding-left: 2%;
+    left: 250px;
+}
+.input{
+    width: 75%;
+    display: table;
+    margin: 0 auto;
+    font-family: inherit;
+    color: #FFFFFF;
+    font-family: "Comic Sans MS";
+    font-size: 24px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 3%;
+}
+.input:hover{
+    cursor: pointer;
+}
+.button{
+    margin-top: 4%;
+    margin-bottom: 5%;
+    margin-left: 11%;
+    width: 33%;
+    height: 50px;
+    color: black;
+    background-color: white;
+    font-family: inherit;
+    font-size: 30px;
+    border-radius: 10px;
+}
+.button:hover{
+    color: black;
+    background-color: grey;
+    border: none;
+    cursor: pointer;
+}
+.facebook{
+    color: #FFFFFF;
+    background-color: #0229c5;
+    border: none;
+    font-family: "Comic Sans MS";
+    font-size: 30px;
+    width: 66%;
+    border-radius: 10px;
+}
+.facebook:hover{
+    cursor: pointer;
+}
+.labelSignUp{
+	color:white;
+}
+
+.navbar{
+	color:orange;
+	background-color:white;
+}
