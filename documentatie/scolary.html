@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+		Scolary
+    </title>
+	<meta charset="UTF-8">
+</head>
+<body>
+<center><h1>Lost & Found Report</h1></center>
+
+<p>Acest raport descrie curentul progress la proiectul numit „Lost & Found” care va fi evaluat la disciplina Tehnologi Web promoția 2016-2017.
+ Participanți la crearea acestui proiect sunt ,Rîza Adrian II-B2, Boca Victor-Bogdan II-B6 și Volocaru Sergiu III-A6.</p>
+
+<h3><b>1.Introducere</b></h3>
+<p>Se dorește dezvoltarea unei aplicații Web pentru managementul obiectelor pierdute, oferind inclusiv suport pentru interacțiunea dintre persoana 
+care a declarat că a pierdut ceva (punând la dispoziție suficiente detalii referitoare la identificarea obiectului pierdut) cu individul care a găsit,
+ eventual, acel obiect (introducând la randu-i diverse atribute ale acestuia). În loc de obiecte, se pot considera și ființe -- e.g., animăluțe de casa.
+ Sistemul va include și o manieră de raportare a fraudelor, plus diverse mijloace de generare a situațiilor privind entitățile pierdute și/sau recuperate,
+ disponibile în formatele HTML, CSV, JSON și PDF.</p>
+
+<h3><b>Utilizatorul înregistrat</b></h3>
+-	Se loghează pe aplicație folosind un username și o parolă<br>
+-	După ce s-a logat are următoarele drepturi: <br>
+o	postează un anunț cu un obiect pierdut sau găsit;<br>
+o	poate să șteargă un anunț postat de către el;<br>
+o	poate să editeze propriile anunțuri;<br>
+o	poate să comenteze la orice anunț;<br>
+o	poate să raporteze un alt anunț; <br>
+o	își poate schimba parola (doar dacă o cunoaște pe cea existentă);<br>
+o	(opțional) posibilatea de a șterge anunțuri după ce obiectul a fost recuperat de către propietar;<br>
+o	(opțional) detalii despre el înșuși și/sau despre alt utilizator (despre); <br>
+
+
+<h3><b>Utilizator fără cont</b></h3>
+Utilizatorul fără cont nu va putea accesa aplicația. Acesta poate să își creeze un cont completând un formular de înregistrare.
+
+<h3><b>Administratorul</b></h3>
+-	Se loghează pe aplicație folosind un username și o parolă<br>
+-	După ce s-a logat are următoarele drepturi: <br>
+o	generează rapoarte despre anunțuri în următoarele formate: HTML, CSV, JSON și PDF;<br>
+o	ștergere anunțuri;<br>
+o	în funcție de conținutul unui anunț acesta poate să baneze un utilizator;<br>
+o	(opțional) oferă altor utilizatori drepturi de administrator;<br>
+o	(opțional) vizualizează o listă cu toate anunțurile care au fost raportate;<br>
+o	(opțional) vizualizează detalii avansate despre un utilizator normal;<br>
+<h3><b>Typography</b></h3>
+Aplicația va utiliza setul de caractere FreeUniversal , în primul rând, deoarece oferă un aspect simplist frumos neutru și în al doilea rând, pentru că este licențiat sub  SIL-OFL. .
+
+<h3><b>2. Etapele dezvoltarii proiectului</b></h3>
+1.	Schite/Design/Arhitectura ()<br>
+2.	Modelare baza de date ()<br>
+3.	Creare pagini frontend ()<br>
+4.	Design backend ()<br>
+5.	Design proceduri My SQL ()<br>
+6.	Design & implementare ()<br>
+7.	Implementare proceduri MySQL()<br>
+8.	Implementar php ()<br>
+9.	Implementarea view-urilor pe baza html&css&javascript ()<br>
+10.	Adaugare functionalitati ajax ()<br>
+11.	Testing<br>
+12.	Deployment<br>
+	
+
+<h3><b>3.Tehnologi utilizate</b></h3>
+
+Proiectul utilizează următoarele tehnologii:
+HTML5 - este un limbaj pentru structurarea și prezentarea conținutului pentru World Wide Web, o tehnologie nucleu pentru Internet propusă inițial pentru 
+software-ul Opera.<br>
+<br>
+CSS - (Cascading Style Sheets) este un standard pentru formatarea elementelor unui document HTML. Stilurile se pot atașa elementelor HTML prin intermediul 
+unor fișiere externe sau în cadrul documentului, prin elementul "style" și/sau atributul style. CSS se poate utiliza și pentru formatarea elementelor XHTML,
+ XML și SVGL<br>
+ <br>
+Javascript - este un limbaj de programare orientat obiect bazat pe conceptul prototipurilor.Este folosit mai ales pentru introducerea unor funcționalități în 
+paginile web, codul Javascript din aceste pagini fiind rulat de către browser. Limbajul este binecunoscut pentru folosirea sa în construirea siturilor web, 
+dar este folosit și pentru acesul la obiecte încastrate (embedded objects) în alte aplicații. A fost dezvoltat inițial de către Brendan Eich de la Netscape
+ Communications Corporation sub numele de Mocha, apoi LiveScript, și denumit în final JavaScript.<br>
+ <br>
+PHP - Hypertext Preprocessor. Folosit inițial pentru a produce pagini web dinamice, este folosit pe scară largă în dezvoltarea paginilor și aplicațiilor web.
+ Se folosește în principal înglobat în codul HTML, dar începând de la versiunea 4.3.0 se poate folosi și în mod „linie de comandă” (CLI), permițând crearea 
+ de aplicații independente. Este unul din cele mai importante limbaje de programare web open-source și server-side, existând versiuni disponibile pentru 
+ majoritatea web serverelor și pentru toate sistemele de operare. Conform statisticilor este instalat pe 20 de milioane de situri web și pe 1 milion de 
+ servere web. Este disponibil sub Licenṭa PHP ṣi Free Software Foundation îl consideră a fi un software liber.<br>
+
+<h3><b>4.MySQL pentru baza de date</b></h3>
+
+Baza de date<br>
+•	users(id,username,name,email,password)<br>
+•	users_session(id,users)<br>
+•	posts(post_id,post_title,picture,area,description,user_id)<br>
+•	groups(id,name,permissions)<br>
+•	comments(id,content,id_user,id_post)<br>
+
+<h3><b>5. Structura</b></h3>
+
+Pagina de pornire<br>
+•	Va contine un formular de login unde care va contine 2 butoane. Un buton de login si unul de Sing Up in care utilizatorul isi poate crea cont<br>
+<br>
+Header<br>
+•	Header-ul o sa aiba o pozitie fixa:<br>
+•	Logo catre pagina principala<br>
+•	Unde va contine un buton de logout<br>
+<br>
+Pagina de inregistrare utilizator<br>
+
+•	Pentru inregistrare sunt cerute: <br>
+•	Username<br>
+•	Password <br>
+•	Confirm Password<br>
+•	Email<br>
+<br>
+Pagina pentru post-uri<br>
+•	Utilizatoru va putea posta anunturi cu obiecte pierdute sau gasite. <br>
+•	Va fi 2 pagini. Una cu obiecte pierdute si una cu obiecte gasite.<br>
+•	Si utilizatori vor putea adauga comentari la anunt.<br>
+<br>
+Servicii<br>
+
+
+1. Github<br>
+
+•	GitHub este un serviciu de găzduire web pentru proiecte de dezvoltare a software-ului care utilizează sistemul de control al versiunilor Git. GitHub 
+oferă planuri tarifare pentru depozite private și conturi gratuite pentru proiecte open source.<br>
+
+
+</body>
+</html>

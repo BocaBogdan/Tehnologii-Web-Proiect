@@ -1,12 +1,12 @@
 <?php
 include 'core/init.php';
 
-if (empty($_POST) === false) {
+if ( !empty($_POST) ) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	if (empty($username) === true || empty($password) === true) {
+	if (empty($username)|| empty($password)) {
 		$errors[] = 'You need to enter a username and password';
-	} else if (user_exists($username) === false) {
+	} else if (!user_exists($username)) {
 		$errors[] = 'We can\`t find that username!';
 	} else{
 		
@@ -15,7 +15,7 @@ if (empty($_POST) === false) {
 				}
 				
 			$login = login($username,$password);
-			if ($login === false) {
+			if (!$login) {
 				$errors[] = 'Ceva nu e bun la user/password';
 			} else {
 				$_SESSION['user_id'] = $login;
@@ -25,7 +25,7 @@ if (empty($_POST) === false) {
 	}
 }
 include 'includes/LoginOver/header.php';
-if (empty($errors) === false) {
+if (!empty($errors)) {
 include 'includes/LoginOver/footer.php';
 ?>
 		<h2>We tried to log you in, but...</h2>

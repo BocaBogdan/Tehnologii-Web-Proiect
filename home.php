@@ -11,18 +11,23 @@ protect_page();
 </head>
 <body>
 <nav class="navbar">
-	<div>
-		viata mea
+	<div><p>Logat ca si:
 		<?php
 			if (logged_in() === true) {
 				include 'includes/widgets/loggedin.php';
 			}else{
 				header('Location: index.php');
 			}
-		?>
-		<a href = "logout.php">Log Out</a>
-		<a href = "changepassword.php">Change password</a>
+		?></p>
+		<a href = "logout.php" class="button" >Log Out</a>
+		<a href = "changepassword.php" class="button" >Change password</a>
 	<div>
 </nav>
+<div>
+	<a href="found.php" class="button">I found!</a>
+</div>
+<div>
+	<a href="lost.php" class="button">I Lost!</a>
+</div>
 </body>
 </html>
