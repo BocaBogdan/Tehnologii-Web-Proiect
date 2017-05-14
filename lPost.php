@@ -1,25 +1,28 @@
 <?php
 include 'core/init.php';
 protect_page();
+$error=array();
 
 	if (isset($_POST['upload'])){
-		
+	$isImage=true;	
 		$imageFileType = pathinfo("image/" . basename($_FILES['image']['name']),PATHINFO_EXTENSION);
 		$image = $_FILES['image']['name'];
+		$allowed= array('gif','png','jpg','jpeg');
+		if(!in_array($imageFileType,$allowed)){
+		$isImage=false;
+		}
 		$description = $_POST['description'];
-		
-		if($description == true){
+		if(($description == true)&&($isImage==true)){
 		move_uploaded_file($_FILES['image']['tmp_name'],"image/".$_FILES["image"]["name"]);
 		$query = mysql_real_escape_string(mysql_query("INSERT INTO `lpost` (image, description) VALUE ('$image', '$description')"));
-			
 			header('Location: lost.php');
 			exit();
 		}
-		/*if (move_uploaded_file($_FILES['image']['tmp_name'], $target)){
-			$msg = "Post uploaded successfully";
-		}else{
-			$msg = "probleme breee";
-		}*/
+		else{
+			echo '<h1> You need to insert a <b>image</b></h1>';
+		}
+			
+		
 	}
 ?>
 
