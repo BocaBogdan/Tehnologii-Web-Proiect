@@ -8,7 +8,9 @@ if ( !empty($_POST) ) {
 		$errors[] = 'You need to enter a username and password';
 	} else if (!user_exists($username)) {
 		$errors[] = 'We can\`t find that username!';
-	} else{
+	} else if (user_active($username) === false){
+		$errors[] = 'Youre account has been baned!';	
+	} else {
 		
 				if (strlen($password) > 32) {
 					$errors[] = 'Password to long';

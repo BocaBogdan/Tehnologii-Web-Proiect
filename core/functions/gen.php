@@ -13,6 +13,14 @@ function protect_page() {
 	}
 }
 
+function admin_protect() {
+	global $user_data;
+	if (has_access($user_data['user_id']) === false ){
+	header('Location: index.php');
+	exit();
+	}
+}
+
 function array_sanitize(&$item) {
 	$item = mysql_real_escape_string($item);
 }

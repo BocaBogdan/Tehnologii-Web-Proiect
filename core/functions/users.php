@@ -1,4 +1,9 @@
 <?php
+function has_access($user_id) {
+	$user_id = (int)$user_id;
+	return (mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `user_id` = '$user_id' AND `type` = 1"),0) == 1) ? true : false;
+}
+
 function change_password($user_id, $password) {
 	$user_id = (int)$user_id;
 	$password = md5($password);
@@ -45,6 +50,12 @@ function user_exists($username) {
 function email_exists($email) {
 	$email = sanitize($email);
 	$query = mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `email` = '$email'");
+	return (mysql_result($query, 0) == 1) ? true : false ;
+}
+
+function user_active($username) {
+	$username = sanitize($username);
+	$query = mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `username` = '$username' AND `active` = 1");
 	return (mysql_result($query, 0) == 1) ? true : false ;
 }
 
