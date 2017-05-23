@@ -10,7 +10,7 @@ protect_page();
 	<link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-<nav class="navbar">
+<nav>
 	<div><p>Logat ca si:
 		<?php
 			if (logged_in() === true) {

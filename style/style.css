@@ -1,15 +1,16 @@
-*{
+* {
     margin: auto;
     padding: 0;
-	background-color: #2EDAFF;
+    background-color: #2EDAFF;
 }
 
-.div{
+.div {
     margin: auto;
     width: 50%;
     margin-top: 5%;
 }
-.header{
+
+.header {
     font-family: "Comic Sans MS";
     font-size: 60px;
     border: 3px solid white;
@@ -18,7 +19,8 @@
     text-align: center;
     padding-left: 2%;
 }
-.footer{
+
+.footer {
     margin-top: 1%;
     font-family: "Comic Sans MS";
     border: 3px solid white;
@@ -27,7 +29,8 @@
     padding-left: 2%;
     left: 250px;
 }
-.input{
+
+.input {
     width: 75%;
     display: table;
     margin: 0 auto;
@@ -39,10 +42,12 @@
     padding-bottom: 1%;
     padding-left: 3%;
 }
-.input:hover{
+
+.input:hover {
     cursor: pointer;
 }
-.button{
+
+.button {
     margin-top: 4%;
     margin-bottom: 5%;
     margin-left: 11%;
@@ -54,13 +59,15 @@
     font-size: 30px;
     border-radius: 10px;
 }
-.button:hover{
+
+.button:hover {
     color: black;
     background-color: grey;
     border: none;
     cursor: pointer;
 }
-.facebook{
+
+.facebook {
     color: #FFFFFF;
     background-color: #0229c5;
     border: none;
@@ -69,14 +76,79 @@
     width: 66%;
     border-radius: 10px;
 }
-.facebook:hover{
+
+.facebook:hover {
     cursor: pointer;
 }
-.labelSignUp{
-	color:white;
+
+.labelSignUp {
+    color: white;
 }
 
-.navbar{
-	color:orange;
-	background-color:white;
+.navImg {
+    background-color: transparent;
+    float: left;
+    padding-top: 5px;
+}
+
+.navbar {
+    width: 100%;
+    height: 70px;
+    background-color: #afd6f7;
+}
+
+.navButton {
+    background-color: transparent;
+    height: 50px;
+    text-decoration: none;
+    float: right;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+.navText {
+    background-color: transparent;
+    font-family: "Comic Sans MS";
+    font-size: 24px;
+    color: #003d76;
+    float: right;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-weight: bold;
+}
+
+.navButton:hover {
+    opacity: 0.75;
+}
+
+.navText:hover {
+    color: #fffc00;
+}
+
+.Selector {
+    margin: auto;
+    background-color: #003399;
+}
+
+.Select {
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+    color: #189f32;
+    font-family: "Times New Roman";
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #ffffff;
+    margin-left: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.dropSelect {
+    padding-left: 15px;
+    color: #ffffff;
+    background-color: #189f32 ;
+    font-size: 14px;
 }

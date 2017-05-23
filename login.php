@@ -21,7 +21,7 @@ if ( !empty($_POST) ) {
 				$errors[] = 'Ceva nu e bun la user/password';
 			} else {
 				$_SESSION['user_id'] = $login;
-				header('Location: home.php');
+				header('Location: lost.php');
 				exit();
 			}	
 	}

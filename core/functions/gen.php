@@ -1,7 +1,7 @@
 <?php
 function logged_in_redirect() {
 	if (logged_in() === true) {
-		header('Location: home.php');
+		header('Location: lost.php');
 		exit();
 	}
 }
@@ -16,7 +16,7 @@ function protect_page() {
 function admin_protect() {
 	global $user_data;
 	if (has_access($user_data['user_id']) === false ){
-	header('Location: index.php');
+	header('Location: lost.php');
 	exit();
 	}
 }
