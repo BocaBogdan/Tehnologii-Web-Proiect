@@ -1,6 +1,9 @@
 <?php
 include 'core/init.php';
 protect_page();
+$connect=mysql_connect("localhost","root","","");
+
+include 'core/functions/fill.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,6 +11,7 @@ protect_page();
 	<title>Home Page</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="style/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 </head>
 <body>
 
@@ -24,26 +28,21 @@ protect_page();
 
 <div class="Selector">
 
-	<select class="Select">
-		<option class="dropSelect" name="all" >ALL</option>
-		<option class="dropSelect" name="lost" >LOST</option>
-		<option class="dropSelect" name="found" >FOUND</option>
+	<select class="Select" name="type" id="type">
+		<option class="dropSelect" value="">ALL</option>
+		<?php echo fill_type_add($connect);?>
 	</select>
 
-	<select class="Select">
-		<option class="dropSelect" name="defaut">ALL</option>
-		<option class="dropSelect" name="portofel">PORTOFEL</option>
-		<option class="dropSelect" name="telefon">TELEFON</option>
-		<option class="dropSelect" name="chei">CHEI</option>
-		<option class="dropSelect" name="acte" >ACTE</option>
-		<option class="dropSelect" name="altceva">ALTCEVA</option>
+	<select class="Select" name="categori" id="categori">
+		<option class="dropSelect" value="">ALL</option>
+		<?php echo fill_type_categori($connect);?>
 	</select>
 
-	<select class="Select">
-		<option class="dropSelect" name="dateAsc">Date Asc</option>
-		<option class="dropSelect" name="dateDesc">Date Desc</option>
-		<option class="dropSelect" name="alfabetic">Alfabetic</option>
-		<option class="dropSelect" name="Inalfabetic">Invers alfabetic</option>
+	<select class="Select"  name="date" id="date">
+		<option class="dropSelect" value="ASC">Date Asc</option>
+		<option class="dropSelect" value="DESC">Date Desc</option>
+		<!--<option class="dropSelect" name="alfabetic">Alfabetic</option>
+		<option class="dropSelect" name="Inalfabetic">Invers alfabetic</option>-->
 	</select>
 
 	<select class="Select">
@@ -54,6 +53,47 @@ protect_page();
 	</select>
 
 </div>
+<div id="show_anunt">
+	<?php echo fill_ads($connect);?>
+</div>
 
 </body>
 </html>
+
+<script>
+$(document).ready(function(){
+	$('#type').change(function(){
+		var Id_Ads=$(this).val();
+		$.ajax({
+			url:"core/load_data.php",
+			method:"POST",
+			data:{Id_Ads:Id_Ads,Id_Categori:$('#categori').val(),date:$('#date').val()},
+			success:function(data){
+				$('#show_anunt').html(data);
+			}
+		});
+	});
+	$('#date').change(function(){
+		var date=$(this).val();
+		$.ajax({
+			url:"core/load_data.php",
+			method:"POST",
+			data:{Id_Ads:$('#type').val(),Id_Categori:$('#categori').val(),date:date},
+			success:function(data){
+				$('#show_anunt').html(data);
+			}
+		});
+	});
+	$('#categori').change(function(){
+		var Id_Categori=$(this).val();
+		$.ajax({
+		url:"core/load_data.php",
+		method:"POST",
+		data:{Id_Ads:$('#type').val(),Id_Categori:Id_Categori,date:$('#date').val()},
+		success:function(data){
+			$('#show_anunt').html(data);
+			}
+		});
+	});
+});
+</script>
