@@ -1,7 +1,6 @@
 * {
     margin: auto;
     padding: 0;
-    background-color: #2EDAFF;
 }
 
 .div {
@@ -13,8 +12,8 @@
 .header {
     font-family: "Comic Sans MS";
     font-size: 60px;
-    border: 3px solid white;
-    color: white;
+    border: 3px solid #003366;
+    color: #003366;
     border-radius: 25px 25px 0px 0px;
     text-align: center;
     padding-left: 2%;
@@ -23,7 +22,7 @@
 .footer {
     margin-top: 1%;
     font-family: "Comic Sans MS";
-    border: 3px solid white;
+    border: 3px solid #003366;
     border-radius: 0px 0px 25px 25px;
     padding-top: 2%;
     padding-left: 2%;
@@ -35,7 +34,7 @@
     display: table;
     margin: 0 auto;
     font-family: inherit;
-    color: #FFFFFF;
+    color: #333333;
     font-family: "Comic Sans MS";
     font-size: 24px;
     padding-top: 1%;
@@ -54,7 +53,6 @@
     width: 78%;
     height: 50px;
     color: black;
-    background-color: white;
     font-family: inherit;
     font-size: 30px;
     border-radius: 10px;
@@ -94,7 +92,7 @@
 .navbar {
     width: 100%;
     height: 70px;
-    background-color: #afd6f7;
+    background-color: #cccccc;
 }
 
 .navButton {
@@ -118,24 +116,28 @@
     font-weight: bold;
 }
 
+.navButton:hover .navText {
+    text-shadow: 5px 5px 5px #888888;
+}
+
 .navButton:hover {
     opacity: 0.75;
 }
 
 .navText:hover {
-    color: #fffc00;
+    color: #3366cc;
 }
 
 .Selector {
     margin: auto;
-    background-color: #003399;
+    background-color: #666666;
 }
 
 .Select {
     border-radius: 5px;
     width: 150px;
     height: 40px;
-    color: #189f32;
+    color: #0033ff;
     font-family: "Times New Roman";
     font-size: 18px;
     font-weight: 500;
@@ -146,9 +148,113 @@
     padding-left: 10px;
 }
 
+.submit {
+    background-image: url('search.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    color: transparent;
+    background-color: #999999;
+    border-radius: 5px;
+    margin-left: 15px;
+    border: none;
+    box-shadow: 3px 3px 5px #ffffff;
+}
+
+.submit:hover {
+    cursor: pointer;
+    width: 55px;
+    height: 55px;
+    filter: invert(25%);
+}
+
 .dropSelect {
     padding-left: 15px;
     color: #ffffff;
-    background-color: #189f32 ;
+    background-color: #003366 ;
     font-size: 14px;
+}
+
+.container {
+    background-image: url("background.jpg");
+    width: 100%;
+    height: 89vh;
+}
+
+.Selector1 {
+    position: relative;
+    display: inline-block;
+}
+
+.Selector1:hover .dropDown{
+    display: block;
+}
+
+.homeNavButton {
+    background-color: transparent;
+    height: 50px;
+    text-decoration: none;
+    float: left;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+.homeNavButton:hover {
+    opacity: 0.75;
+    text-shadow: 5px 5px 5px #888888; ;
+}
+
+.navText:hover{
+    opacity: 0.75;
+    text-shadow: 5px 5px 5px #888888; ;
+}
+
+.changePass {
+    padding-top: 5%;
+    margin-left: 35%;
+}
+
+.title {
+    font-family: "Franklin Gothic Medium Cond";
+    font-size: 32px;
+    color: #003366;
+}
+
+.changePassUl {
+    text-decoration: none ;
+}
+
+.changePassLi {
+    list-style-type: none;
+}
+
+.changePassInput {
+    border-radius: 5px;
+    height: 30px;
+    width: 300px;
+    padding-left: 10px;
+    margin-top: 20px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.changePassButton {
+    border-radius: 5px;
+    height: 35px;
+    width: 315px;
+    padding-left: 10px;
+    margin-top: 20px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.changePassButton:hover {
+    background-color: grey;
+}
+
+.error {
+    color:  red;
+    font-family: Tahoma;
+    font-size: 18px;
+    padding-left: 50px;
 }

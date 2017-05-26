@@ -12,19 +12,12 @@ admin_protect();
 </head>
 <body>
 <nav class="navbar">
-	<div><p>Admin:
-		<?php
-			
-		?></p>
+	<div>
 		<a href = "logout.php" class="button" >Log Out</a>
 		<a href = "changepassword.php" class="button" >Change password</a>
-	<div>
+		<a href="lost.php" class="button">Home</a>
+	</div>
 </nav>
-<div>
-	<a href="found.php" class="button">I found!</a>
-</div>
-<div>
-	<a href="lost.php" class="button">I Lost!</a>
-</div>
+
 </body>
 </html>
