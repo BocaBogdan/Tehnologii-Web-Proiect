@@ -2,6 +2,7 @@
 include 'core/init.php';
 protect_page();
 
+include 'core/functions/fill.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,6 +10,10 @@ protect_page();
     <title>Home Page</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style/style.css">
+	<title>Home Page</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 </head>
 <body>
 
@@ -22,60 +27,75 @@ protect_page();
         <?php echo '<p class="navText">' . $user_data['username'] . '</p>' ?>
     </a>
 </nav>
+<div class="Selector">
 
-<form action="" method="post" class="Selector">
+	<select class="Select" name="type" id="type">
+		<option class="dropSelect" value="">ALL</option>
+		<?php echo fill_type_add($connect);?>
+	</select>
 
-    <select class="Select" name="table" >
-        <option class="dropSelect" value="all">ALL</option>
-        <option class="dropSelect" value="lost">LOST</option>
-        <option class="dropSelect" value="found">FOUND</option>
-    </select>
+	<select class="Select" name="categori" id="categori">
+		<option class="dropSelect" value="">ALL</option>
+		<?php echo fill_type_categori($connect);?>
+	</select>
 
-    <select class="Select" name="type">
-        <option class="dropSelect" value="all">ALL</option>
-        <option class="dropSelect" value="portofel">PORTOFEL</option>
-        <option class="dropSelect" value="telefon">TELEFON</option>
-        <option class="dropSelect" value="chei">CHEI</option>
-        <option class="dropSelect" value="acte">ACTE</option>
-        <option class="dropSelect" value="altceva">ALTCEVA</option>
-    </select>
+	<select class="Select"  name="date" id="date">
+		<option class="dropSelect" value="ASC">Date Asc</option>
+		<option class="dropSelect" value="DESC">Date Desc</option>
+		<!--<option class="dropSelect" name="alfabetic">Alfabetic</option>
+		<option class="dropSelect" name="Inalfabetic">Invers alfabetic</option>-->
+	</select>
 
-    <select class="Select" name="order">
-        <option class="dropSelect" value="asc">Date Asc</option>
-        <option class="dropSelect" value="desc">Date Desc</option>
-        <option class="dropSelect" value="alfab">Alfabetic</option>
-        <option class="dropSelect" value="dezalfab">Invers alfabetic</option>
-    </select>
-
-    <select class="Select" name="number">
-        <option class="dropSelect" value="15">15</option>
-        <option class="dropSelect" value="25">25</option>
-        <option class="dropSelect" value="35">35</option>
-        <option class="dropSelect" value="45">45</option>
-    </select>
-    <!--<input type="submit" class="submit"/>-->
-</form>
+	<select class="Select">
+		<option class="dropSelect" name="default" >15</option>
+		<option class="dropSelect" name="def25" >25</option>
+		<option class="dropSelect" name="def35" >35</option>
+		<option class="dropSelect" name="def45" >45</option>
+	</select>
 
 <div class="container">
-    <?php
-    if (isset($_POST['table'])) {
-        $select1 = $_POST['table'];
-        echo  $select1 .'<BR>';
-    }
-    if (isset($_POST['type'])) {
-        $select1 = $_POST['type'];
-        echo  $select1 .'<BR>';
-    }
-    if (isset($_POST['order'])) {
-        $select1 = $_POST['order'];
-        echo  $select1 .'<BR>';
-    }
-    if (isset($_POST['number'])) {
-        $select1 = $_POST['number'];
-        echo  $select1 .'<BR>';
-    }
-    ?>
+    <div>
+	<?php echo fill_ads($connect);?>
+	</div>
 </div>
 
 </body>
 </html>
+
+<script>
+$(document).ready(function(){
+	$('#type').change(function(){
+		var Id_Ads=$(this).val();
+		$.ajax({
+			url:"core/load_data.php",
+			method:"POST",
+			data:{Id_Ads:Id_Ads,Id_Categori:$('#categori').val(),date:$('#date').val()},
+			success:function(data){
+				$('#show_anunt').html(data);
+			}
+		});
+	});
+	$('#date').change(function(){
+		var date=$(this).val();
+		$.ajax({
+			url:"core/load_data.php",
+			method:"POST",
+			data:{Id_Ads:$('#type').val(),Id_Categori:$('#categori').val(),date:date},
+			success:function(data){
+				$('#show_anunt').html(data);
+			}
+		});
+	});
+	$('#categori').change(function(){
+		var Id_Categori=$(this).val();
+		$.ajax({
+		url:"core/load_data.php",
+		method:"POST",
+		data:{Id_Ads:$('#type').val(),Id_Categori:Id_Categori,date:$('#date').val()},
+		success:function(data){
+			$('#show_anunt').html(data);
+			}
+		});
+	});
+});
+</script>
