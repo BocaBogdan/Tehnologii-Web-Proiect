@@ -2,7 +2,7 @@
 include 'core/init.php';
 protect_page();
 
-include 'core/functions/fill.php';
+//include 'core/functions/fill.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,7 +53,7 @@ include 'core/functions/fill.php';
 		<option class="dropSelect" name="def45" >45</option>
 	</select>
 
-<div class="container">
+<div class="container" id="show_anunt">
     <div>
 	<?php echo fill_ads($connect);?>
 	</div>

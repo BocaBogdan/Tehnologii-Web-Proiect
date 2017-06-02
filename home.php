@@ -25,7 +25,7 @@ $query = "select * from `lpost` where id =". $user_data['user_id'] ;
     ?>
     <a href="logout.php" class="navButton navText">Log Out</a>
     <a href="changepassword.php" class="navButton navText">Change password</a>
-    <!--<a href="<?php echo $user_data['username']; ?>" class="navButton">Profile</a>-->
+    <a href="<?php echo $user_data['username']; ?>" class="navButton">Profile</a>
     <a href="lost.php" class="homeNavButton navText">Home</a>
 </nav>
 <div class="container">

@@ -18,6 +18,6 @@ admin_protect();
 		<a href="lost.php" class="button">Home</a>
 	</div>
 </nav>
-
+	<a href="generare.php" class="button">Generare</a>
 </body>
 </html>

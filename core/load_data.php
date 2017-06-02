@@ -1,6 +1,6 @@
 <?php
 $connect=mysql_connect("localhost","root","","");
-mysql_select_db('lofo') or die($connect_error);
+mysql_select_db('lofo1') or die($connect_error);
 $output=' ';
 	if(($_POST["Id_Ads"]!="")&&($_POST["Id_Categori"]!=""))
 	{
