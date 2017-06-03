@@ -2,6 +2,10 @@
 include 'core/init.php';
 protect_page();
 include 'core/functions/profile/get_all_profile_adds.php';
+
+if(isset($_POST['comment'])){
+	insert_comment($_POST['conted'],$_POST['lpost_id'],$user_data['user_id']);
+}
 ?>
 <!DOCTYPE html>
 <html>
