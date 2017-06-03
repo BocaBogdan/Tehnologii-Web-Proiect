@@ -55,7 +55,7 @@ protect_page();
 
 <div class="container" id="show_anunt">
     <div>
-	<?php echo fill_ads($connect);?>
+	<?php echo fill_ads($connect,$_POST['user_id']);?>
 	</div>
 </div>
 

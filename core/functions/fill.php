@@ -28,10 +28,14 @@ if(isset($_POST['comment'])){
 	$query = mysql_real_escape_string(mysql_query("INSERT INTO `comments` (conted, lpost_id, user_id) VALUE ('$conted', '$lpost_id', '$user_id')"));
 }
 
-function fill_ads($connect){
-	$output='';
+function fill_ads($connect,$user){
 	$sql="SELECT * FROM lpost";
 	$result=mysql_query($sql);
+	return simple_fill($result,$user);
+}
+
+function simple_fill($result,$user){
+	$output='';
 	while($row=mysql_fetch_array($result)){
 		$output.="<div>";
 		$output.="<p>" . $row['description'] . "</p>";
@@ -45,5 +49,6 @@ function fill_ads($connect){
 	}
 	return $output;
 }
+
 ?>
 

@@ -1,7 +1,7 @@
 <?php
 include 'core/init.php';
 protect_page();
-$query = "select * from `lpost` where id =". $user_data['user_id'] ;
+include 'core/functions/profile/get_all_profile_adds.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,6 +29,10 @@ $query = "select * from `lpost` where id =". $user_data['user_id'] ;
     <a href="lost.php" class="homeNavButton navText">Home</a>
 </nav>
 <div class="container">
+</div>
+<div>
+	<p>Anunturile mele</p>
+	<?php echo get_my_adds($user_data['user_id']); ?>
 </div>
 </body>
 </html>
