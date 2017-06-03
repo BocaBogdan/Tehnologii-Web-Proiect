@@ -3,7 +3,7 @@ include 'core/init.php';
 protect_page();
 $error=array();
 
-	if (isset($_POST['upload'])){
+	if (isset($_POST['upload'])){	
 	$isImage=true;	
 		$imageFileType = pathinfo("image/" . basename($_FILES['image']['name']),PATHINFO_EXTENSION);
 		$image = $_FILES['image']['name'];
@@ -11,11 +11,9 @@ $error=array();
 		if(!in_array($imageFileType,$allowed)){
 		$isImage=false;
 		}
-		$description = $_POST['description'];
-		$user_id     = $user_data['user_id'];
-		if(($description == true)&&($isImage==true)){
+		if(($_POST['description'] == true)&&($isImage==true)){
 		move_uploaded_file($_FILES['image']['tmp_name'],"image/".$_FILES["image"]["name"]);
-		$query = mysql_real_escape_string(mysql_query("INSERT INTO `lpost` (image, description, user_id) VALUE ('$image', '$description', '$user_id')"));
+		insert_add($image,$_POST['description'],$user_data['user_id']);
 			header('Location: lost.php');
 			exit();
 		}

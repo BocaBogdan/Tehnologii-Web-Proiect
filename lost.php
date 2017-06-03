@@ -3,6 +3,9 @@ include 'core/init.php';
 protect_page();
 
 //include 'core/functions/fill.php';
+if(isset($_POST['comment'])){
+	insert_comment($_POST['conted'],$_POST['lpost_id'],$user_data['user_id']);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,8 +45,6 @@ protect_page();
 	<select class="Select"  name="date" id="date">
 		<option class="dropSelect" value="ASC">Date Asc</option>
 		<option class="dropSelect" value="DESC">Date Desc</option>
-		<!--<option class="dropSelect" name="alfabetic">Alfabetic</option>
-		<option class="dropSelect" name="Inalfabetic">Invers alfabetic</option>-->
 	</select>
 
 	<select class="Select">
@@ -55,14 +56,18 @@ protect_page();
 
 <div class="container" id="show_anunt">
     <div>
-	<?php echo fill_ads($connect,$_POST['user_id']);?>
+	<?php echo fill_ads($connect,$user_data['user_id']);?>
 	</div>
 </div>
 
 </body>
 </html>
 
+
+
+
 <script>
+
 $(document).ready(function(){
 	$('#type').change(function(){
 		var Id_Ads=$(this).val();
