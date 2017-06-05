@@ -181,6 +181,66 @@
     width: 100%;
 }
 
+.titleInsert {
+    font-family: "Franklin Gothic Medium Cond";
+    font-size: 32px;
+    color: #003366;
+    padding-top: 5%;
+    margin-left: 30%;
+}
+
+.selectAnounce {
+    margin-top: 2%;
+    margin-left: 32%;
+    width: 310px;
+    font-family: "Franklin Gothic Medium Cond";
+    font-size: 18px;
+    border-radius: 5px;
+    border-style: none;
+    box-shadow: 10px 10px 5px #888888;
+    padding-left: 10px;
+}
+
+.inputAnounce {
+    font-family: "Franklin Gothic Medium Cond";
+    font-size: 18px;
+    margin-top: 2%;
+    margin-left: 32%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 10px 10px 5px #888888;
+    padding-left: 10px;
+}
+
+.anounceDescription {
+    margin-top: 2%;
+    margin-left: 32%;
+    border-radius: 5px;
+    border-style: none;
+    width: 310px;
+    height: 75px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.buttonDescription {
+    margin-top: 2% ;
+    margin-left: 40%;
+    width: 100px;
+    height: 25px;
+    border-style: none;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px #888888;
+    padding-left: 10px;
+    padding-top: 2px;
+}
+
+.buttonDescription:hover {
+    cursor: pointer;
+    background-color: #767676;
+}
+
+
 .Selector1 {
     position: relative;
     display: inline-block;
@@ -256,4 +316,49 @@
     font-family: Tahoma;
     font-size: 18px;
     padding-left: 50px;
+}
+
+#element {
+    width: 500px;
+    height: auto;
+    padding-left: 50px;
+    margin-bottom: 20px;
+    background-color: #E0E0E0;
+    box-shadow: 10px 10px 5px rgb(102, 102, 102);
+    border-radius: 5px;
+}
+
+#anouncePhoto {
+    width: 250px;
+    height: 200px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+#anouncePhoto:hover{
+    width: 460px;
+    height: 340px;
+}
+
+#anounceDescription {
+    font-family: "Comic Sans MS";
+    font-size: 24px;
+    float: right;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+#insertComent {
+    width: 75px;
+    height: 25px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #0033ff;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 5px rgb(102, 102, 102);
+}
+
+#show_coments {
+    font-family: "Times New Roman", serif;
+    font-size: 18px;
 }
