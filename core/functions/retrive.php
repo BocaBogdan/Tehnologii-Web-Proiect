@@ -50,4 +50,14 @@ function retrive_user_ads($user_id){
 	$sql="SELECT * FROM lpost where user_id='".$user_id."'";
 	return mysql_query($sql);
 }
+function retrive_user_name($user_id){
+	$sql="SELECT * FROM users where user_id='".$user_id."'";
+	return mysql_query($sql);
+}
+
+function retrive_all_user_name(){
+	$sql="SELECT * FROM users where type=0";
+	return mysql_query($sql);
+}
+
 ?>

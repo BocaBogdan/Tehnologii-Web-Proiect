@@ -19,5 +19,6 @@ admin_protect();
 	</div>
 </nav>
 	<a href="generare.php" class="button">Generare</a>
+	<?php echo fill_user_list()?>
 </body>
 </html>

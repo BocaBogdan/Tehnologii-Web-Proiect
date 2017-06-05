@@ -66,9 +66,33 @@ if(isset($_POST['comment'])){
 
 
 
-<script>
+<script type="text/javascript">
 
-$(document).ready(function(){
+function edit(id_coment,conted){
+var parmetri_renunta='"';
+parmetri_renunta+=id_coment+'","';
+parmetri_renunta+=conted+'"';	
+document.getElementById(id_coment).innerHTML = "<input type='text' name='editcoment' value='"+conted+"'>"
+												+"<input type='submit' value='Done' name='da' onclick='done("+parmetri_renunta+")'>"
+												+"<input type='submit' value='Renunta' name='da' onclick='renunta("+parmetri_renunta+")'>";//onclick='done("+$id_coment+',"Sergiu")>';
+		
+}
+function done(id_coment,conted){
+var newCommnet = document.getElementById(id_coment).firstChild.value;
+var unique_id_coment=id_coment.substring(11,id_coment.length);
+/*Trebuie facut update-ul in baza de date*/
+//alert("Noul comentariu este: "+newCommnet+"Are id: "+id_coment.substring(11,id_coment.length));
+document.getElementById(id_coment).innerHTML=newCommnet+"<img src='style/edit.png' 'height='10' width='10' value='1' onclick='edit("+'"'+id_coment+'"'+","+'"'+newCommnet+'"'+")'>";
+
+}
+function renunta(id_coment,conted){
+alert("Renunta");
+document.getElementById(id_coment).innerHTML=conted+"<img src='style/edit.png' 'height='10' width='10' value='1' onclick='edit("+'"'+id_coment+'"'+","+'"'+conted+'"'+")'>";
+}
+</script>
+
+<script>
+/*$(document).ready(function(){
 	$('#type').change(function(){
 		var Id_Ads=$(this).val();
 		$.ajax({
@@ -102,5 +126,5 @@ $(document).ready(function(){
 			}
 		});
 	});
-});
+});*/
 </script>
