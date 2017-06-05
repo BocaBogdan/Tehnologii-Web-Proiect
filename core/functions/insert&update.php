@@ -8,4 +8,9 @@ function insert_add($image,$description,$user_id){
 
 	 mysql_real_escape_string(mysql_query("INSERT INTO `lpost` (image, description, user_id) VALUE ('$image', '$description', '$user_id')"));
 }
+
+function update_comment($id_comment,$conted){
+	
+	mysql_real_escape_string(mysql_query("UPDATE `comments` SET conted ='$conted' WHERE id_coment='$id_comment'"));
+}
 ?>

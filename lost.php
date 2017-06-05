@@ -13,9 +13,6 @@ if(isset($_POST['comment'])){
     <title>Home Page</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style/style.css">
-	<title>Home Page</title>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="style/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
 </head>
 <body>
@@ -53,11 +50,10 @@ if(isset($_POST['comment'])){
 		<option class="dropSelect" name="def35" >35</option>
 		<option class="dropSelect" name="def45" >45</option>
 	</select>
+</div>
 
 <div class="container" id="show_anunt">
-    <div>
 	<?php echo fill_ads($connect,$user_data['user_id']);?>
-	</div>
 </div>
 
 </body>
@@ -80,19 +76,26 @@ document.getElementById(id_coment).innerHTML = "<input type='text' name='editcom
 function done(id_coment,conted){
 var newCommnet = document.getElementById(id_coment).firstChild.value;
 var unique_id_coment=id_coment.substring(11,id_coment.length);
-/*Trebuie facut update-ul in baza de date*/
-//alert("Noul comentariu este: "+newCommnet+"Are id: "+id_coment.substring(11,id_coment.length));
-document.getElementById(id_coment).innerHTML=newCommnet+"<img src='style/edit.png' 'height='10' width='10' value='1' onclick='edit("+'"'+id_coment+'"'+","+'"'+newCommnet+'"'+")'>";
+
+$.ajax({
+			url:"core/load_comment_edit.php",
+			method:"POST",
+			data:{Id_Commment:unique_id_coment,newContet:newCommnet},
+			success:function(data){
+				//$('#'+id_coment).html(data);
+			}
+		});
+document.getElementById(id_coment).innerHTML=newCommnet+"<img class='editAnounce' src='style/edit.png' 'height='10' width='10' value='1' onclick='edit("+'"'+id_coment+'"'+","+'"'+newCommnet+'"'+")'>";
 
 }
 function renunta(id_coment,conted){
-alert("Renunta");
-document.getElementById(id_coment).innerHTML=conted+"<img src='style/edit.png' 'height='10' width='10' value='1' onclick='edit("+'"'+id_coment+'"'+","+'"'+conted+'"'+")'>";
+
+document.getElementById(id_coment).innerHTML=conted+"<img class='editAnounce' src='style/edit.png' 'height='10' width='10' value='1' onclick='edit("+'"'+id_coment+'"'+","+'"'+conted+'"'+")'>";
 }
 </script>
 
 <script>
-/*$(document).ready(function(){
+$(document).ready(function(){
 	$('#type').change(function(){
 		var Id_Ads=$(this).val();
 		$.ajax({
@@ -108,7 +111,7 @@ document.getElementById(id_coment).innerHTML=conted+"<img src='style/edit.png' '
 		var date=$(this).val();
 		$.ajax({
 			url:"core/load_data.php",
-			method:"POST",
+			method:"POST", 	
 			data:{Id_Ads:$('#type').val(),Id_Categori:$('#categori').val(),date:date},
 			success:function(data){
 				$('#show_anunt').html(data);
@@ -126,5 +129,5 @@ document.getElementById(id_coment).innerHTML=conted+"<img src='style/edit.png' '
 			}
 		});
 	});
-});*/
+});
 </script>

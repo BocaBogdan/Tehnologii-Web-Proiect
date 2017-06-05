@@ -28,14 +28,13 @@ function simple_fill($result,$user){
 	$output='';
 	while($row=mysql_fetch_array($result)){
 		$output.="<div id='element'>";
-		$output.="<p>" . $row['description'] . "</p>";
-		$output.="<p><img src='image/".$row['image'] ."' ".'height='.'"42"'. ' width="42"'.">"."</p>";
-		$output.="<p id='id_post' value='".$row['lpost_id']."'>" . $row['lpost_id'] . "</p>";
-		$output.=fill_coments(retrive_commnets($row['lpost_id']),$user);
-		$output.="<form method='POST' enctype='multipart/form-data'>";
-		$output.="<input type='text' name='conted'></input>";
+		$output.="<div><img id='anouncePhoto' src='image/".$row['image'] ."' />";
+		$output.="<p id='anounceDescription'>" . $row['description'] . "</p></div>";
+		$output.="<br><form method='POST' enctype='multipart/form-data'>";
+		$output.= fill_coments(retrive_commnets($row['lpost_id']),$user);
+		$output.="<input type='text' name='conted'> </input>";
 		$output.="<input type='hidden' name='lpost_id' value='".$row['lpost_id']."'>";
-		$output.="<input type='submit' name='comment' value='Comment' id='insertComent'>Comment</input>";
+		$output.="<input type='submit' name='comment' value='Comment' id='insertComent'> </input>";
 		$output.="</form>";
 		$output.="</div>";
 	}

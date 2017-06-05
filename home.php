@@ -33,8 +33,6 @@ if(isset($_POST['comment'])){
     <a href="lost.php" class="homeNavButton navText">Home</a>
 </nav>
 <div class="container">
-</div>
-<div>
 	<p>Anunturile mele</p>
 	<?php echo get_my_adds($user_data['user_id']); ?>
 </div>
