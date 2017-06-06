@@ -88,12 +88,14 @@ $.ajax({
 				//$('#'+id_coment).html(data);
 			}
 		});
-document.getElementById(id_coment).innerHTML=newCommnet+"<img class='editAnounce' src='style/edit.png' 'height='10' width='10' value='1' onclick='edit("+'"'+id_coment+'"'+","+'"'+newCommnet+'"'+")'>";
+document.getElementById(id_coment).innerHTML=newCommnet+"<img class='editAnounce' src='style/edit.png' 'height='10' width='10' value='1' onclick='edit("+'"'+id_coment+'"'+","+'"'+newCommnet+'"'+")'>"
+												+"<img src='style/delet.png' height= '10' width='10' onclick='delet("+'"'+id_coment+'"'+")'>";
 
 }
 function renunta(id_coment,conted){
 
-document.getElementById(id_coment).innerHTML=conted+"<img class='editAnounce' src='style/edit.png' 'height='10' width='10' value='1' onclick='edit("+'"'+id_coment+'"'+","+'"'+conted+'"'+")'>";
+document.getElementById(id_coment).innerHTML=conted+"<img class='editAnounce' src='style/edit.png' 'height='10' width='10' value='1' onclick='edit("+'"'+id_coment+'"'+","+'"'+conted+'"'+")'>"
+											 +"<img src='style/delet.png' height= '10' width='10' onclick='delet("+'"'+id_coment+'"'+")'>";
 }
 
 function delet(id_comment){
