@@ -39,6 +39,11 @@ function simple_fill($result,$user){
 		$unique_id_post="show_add".$row['lpost_id'];
 		$output.="<button type='submit' onclick='deletAddPost(".'"'.$unique_id_post.'"'.")'>X</button>";
 		$output.="<div><img id='anouncePhoto' src='image/".$row['image'] ."' />";
+		if(check_if_ad_is_reported($row['lpost_id'],$user)){
+		$output.="<button type='button'onclick='report_add(".'"'.$row['lpost_id'].'"'.")'>Report</button>";}
+		else{
+		$output.="<p>All ready reported.</p>";	
+		}
 		$output.="<p id='anounceDescription'>" . $row['description'] . "</p></div>";
 		/*aici o sa contina orasul si data*/
 		$output.="<p id='show_date'>".$row['Date']."</p>";
@@ -102,6 +107,10 @@ function chek_is_my_comment($user_id_session,$user_id_comment){
 	if($user_id_session==$user_id_comment) return true;
 	return false;
 }
-
+function check_if_ad_is_reported($id_add,$user_id){
+	$result=mysql_fetch_assoc(retrive_check_report($id_add,$user_id));
+	if($result['count(*)']==0) return true;
+	return false;
+}
 ?>
 

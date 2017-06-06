@@ -84,4 +84,8 @@ function retrive_city_add($id_city){
 	$sql="SELECT * FROM cities where Id_City='".$id_city."'";
 	return mysql_query($sql);
 }
+function retrive_check_report($id_add,$id_user){
+	$sql="SELECT count(*) FROM reports where Id_Add='".$id_add."' and user_id='".$id_user."'";
+	return mysql_query($sql);
+}
 ?>

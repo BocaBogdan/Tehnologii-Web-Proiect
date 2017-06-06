@@ -8,7 +8,6 @@ require 'functions/fill.php';
 require 'functions/retrive.php';
 require 'functions/insert&update.php';
 require 'functions/delete.php';
-require 'functions/deletePost.php'; 
 
 if (logged_in() === true) {
 	$session_user_id = $_SESSION['user_id'];

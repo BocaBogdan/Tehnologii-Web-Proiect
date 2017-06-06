@@ -13,4 +13,7 @@ function update_comment($id_comment,$conted){
 	
 	mysql_real_escape_string(mysql_query("UPDATE `comments` SET conted ='$conted' WHERE id_coment='$id_comment'"));
 }
+function insert_report($id_add,$id_user){
+	mysql_real_escape_string(mysql_query("INSERT INTO `reports` (Id_Add,user_id) VALUE ('$id_add', '$id_user')"));
+}
 ?>

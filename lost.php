@@ -170,4 +170,14 @@ $(document).ready(function(){
 		});
 	});
 });
+function report_add(id_add){
+	$.ajax({
+		url:"core/action_add.php",
+		method:"POST",
+		data:{Id_Add_Report:id_add},
+		success:function(data){
+			$('#element').html(data);
+		}
+	});
+}
 </script>
