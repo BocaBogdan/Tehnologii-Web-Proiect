@@ -3,7 +3,10 @@ function retrive_type_ads(){
 	$sql="SELECT * FROM TypeAds";
 	return mysql_query($sql);
 }
-
+function retrive_city_ads(){
+	$sql="SELECT * FROM Cities";
+	return mysql_query($sql);
+}
 function retrive_type_categori(){
 	$sql="SELECT * FROM Categoris";
 	return mysql_query($sql);
@@ -19,18 +22,35 @@ return mysql_query($sql);
 
 }
 
-function retrive_dropdown_select($type,$category,$sort){
-	if(($type!="")&&($category!=""))
+function retrive_dropdown_select($type,$city,$category,$sort){
+	if(($type!="")&&($category!="")&&($city!=""))
 	{
 		$sql="SELECT * FROM lpost where type='".$type."'";
+		$sql.="and  Id_City='".$city."'";
 		$sql.="and  Id_Categori='".$category."'";
 	}
+	else if(($type!="")&&($category!="")){
+			$sql="SELECT * FROM lpost where type='".$type."'";
+			$sql.="and  Id_Categori='".$category."'";
+	}
+	else if(($category!="")&&($city!="")){
+		$sql="SELECT * FROM lpost where Id_Categori='".$category."'";
+		$sql.="and  Id_City='".$city."'";
+	}
+	else if(($type!="")&&($city!="")){
+			$sql="SELECT * FROM lpost where type='".$type."'";
+			$sql.="and  Id_City='".$city."'";
+	}
+	
 	else if($type!=""){
 			$sql="SELECT * FROM lpost where type='".$type."'";
-	}
-	else if($_POST["Id_Categori"]!=""){
-		$sql="SELECT * FROM lpost where Id_Categori='".$category."'";
-	}
+		}
+	else if($city!=""){
+			$sql="SELECT * FROM lpost where Id_City='".$city."'";
+		}
+	else if($category!=""){
+			$sql="SELECT * FROM lpost where Id_Categori='".$category."'";
+		}		
 	else{
 		$sql="SELECT * FROM lpost";
 	}
@@ -60,4 +80,8 @@ function retrive_all_user_name(){
 	return mysql_query($sql);
 }
 
+function retrive_city_add($id_city){
+	$sql="SELECT * FROM cities where Id_City='".$id_city."'";
+	return mysql_query($sql);
+}
 ?>

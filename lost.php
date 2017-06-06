@@ -33,7 +33,10 @@ if(isset($_POST['comment'])){
 		<option class="dropSelect" value="">ALL</option>
 		<?php echo fill_type_add($connect);?>
 	</select>
-
+	<select class="Select" name="city" id="city">
+		<option class="dropSelect" value="">ALL Cities</option>
+		<?php echo fill_city_add($connect);?>
+	</select>
 	<select class="Select" name="categori" id="categori">
 		<option class="dropSelect" value="">ALL</option>
 		<?php echo fill_type_categori($connect);?>
@@ -101,7 +104,7 @@ $(document).ready(function(){
 		$.ajax({
 			url:"core/load_data.php",
 			method:"POST",
-			data:{Id_Ads:Id_Ads,Id_Categori:$('#categori').val(),date:$('#date').val()},
+			data:{Id_Ads:Id_Ads,Id_City:$('#city').val(),Id_Categori:$('#categori').val(),date:$('#date').val()},
 			success:function(data){
 				$('#show_anunt').html(data);
 			}
@@ -112,7 +115,7 @@ $(document).ready(function(){
 		$.ajax({
 			url:"core/load_data.php",
 			method:"POST", 	
-			data:{Id_Ads:$('#type').val(),Id_Categori:$('#categori').val(),date:date},
+			data:{Id_Ads:$('#type').val(),Id_City:$('#city').val(),Id_Categori:$('#categori').val(),date:date},
 			success:function(data){
 				$('#show_anunt').html(data);
 			}
@@ -123,7 +126,18 @@ $(document).ready(function(){
 		$.ajax({
 		url:"core/load_data.php",
 		method:"POST",
-		data:{Id_Ads:$('#type').val(),Id_Categori:Id_Categori,date:$('#date').val()},
+		data:{Id_Ads:$('#type').val(),Id_City:$('#city').val(),Id_Categori:Id_Categori,date:$('#date').val()},
+		success:function(data){
+			$('#show_anunt').html(data);
+			}
+		});
+	});
+	$('#city').change(function(){
+		var Id_City=$(this).val();
+		$.ajax({
+		url:"core/load_data.php",
+		method:"POST",
+		data:{Id_Ads:$('#type').val(),Id_City:Id_City,Id_Categori:$('#categori').val(),date:$('#date').val()},
 		success:function(data){
 			$('#show_anunt').html(data);
 			}

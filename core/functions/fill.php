@@ -9,6 +9,14 @@ function fill_type_add($connect){
 	}
 	return $output;
 }
+function fill_city_add(){
+	$output='';
+	$result=retrive_city_ads();
+	while($row=mysql_fetch_array($result)){
+		$output.='<option value="'.$row["Id_City"].'">'.$row["Name_City"];
+	}
+	return $output;
+}
 function fill_type_categori($connect){
 	$output='';
 	$result=retrive_type_categori();
@@ -30,6 +38,9 @@ function simple_fill($result,$user){
 		$output.="<div id='element'>";
 		$output.="<div><img id='anouncePhoto' src='image/".$row['image'] ."' />";
 		$output.="<p id='anounceDescription'>" . $row['description'] . "</p></div>";
+		/*aici o sa contina orasul si data*/
+		$output.="<p id='show_date'>".$row['Date']."</p>";
+		$output.="<p id='show_city'>".fill_name_city(retrive_city_add($row['Id_City']))."</p>";
 		$output.="<br><form method='POST' enctype='multipart/form-data'>";
 		$output.= fill_coments(retrive_commnets($row['lpost_id']),$user);
 		$output.="<input type='text' name='conted'> </input>";
@@ -61,9 +72,15 @@ function fill_coments($result,$user){
 }
 
 function fill_username($result){
-	/*Return first(is unique*/
+	/*Return first(is unique)*/
 	while($row=mysql_fetch_array($result)){
 	return $row['username'];
+	}
+}
+function fill_name_city($result){
+	/*Return first(is unique)*/
+	while($row=mysql_fetch_array($result)){
+	return $row['Name_City'];
 	}
 }
 /*Admin page */
