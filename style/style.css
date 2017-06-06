@@ -142,7 +142,7 @@
     font-size: 18px;
     font-weight: 500;
     background-color: #ffffff;
-    margin-left: 150px;
+    margin-left: 100px;
     margin-top: 20px;
     margin-bottom: 20px;
     padding-left: 10px;
@@ -265,6 +265,17 @@
     text-shadow: 5px 5px 5px #888888; ;
 }
 
+.homeText {
+    background-color: transparent;
+    font-family: "Comic Sans MS";
+    font-size: 36px;
+    color: #003d76;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40%;
+    font-weight: bold;
+}
+
 .navText:hover{
     opacity: 0.75;
     text-shadow: 5px 5px 5px #888888; ;
@@ -361,4 +372,25 @@
 #show_coments {
     font-family: "Times New Roman", serif;
     font-size: 18px;
+}
+
+#show_users {
+    font-family: "Times New Roman", serif;
+    font-size: 28px;
+    padding-left: 20%;
+    padding-top: 15px;
+    color: #003366;
+}
+
+.search {
+    background-image: url("search.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 10px;
 }

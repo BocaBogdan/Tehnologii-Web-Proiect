@@ -40,9 +40,9 @@ function simple_fill($result,$user){
 		$output.="<button type='submit' onclick='deletAddPost(".'"'.$unique_id_post.'"'.")'>X</button>";
 		$output.="<div><img id='anouncePhoto' src='image/".$row['image'] ."' />";
 		if(check_if_ad_is_reported($row['lpost_id'],$user)){
-		$output.="<button type='button'onclick='report_add(".'"'.$row['lpost_id'].'"'.")'>Report</button>";}
+			$output.="<button type='button'onclick='report_add(".'"'.$row['lpost_id'].'"'.")'>Report</button>";}
 		else{
-		$output.="<p>All ready reported.</p>";	
+			$output.="<p>All ready reported.</p>";
 		}
 		$output.="<p id='anounceDescription'>" . $row['description'] . "</p></div>";
 		/*aici o sa contina orasul si data*/
@@ -66,12 +66,12 @@ function fill_coments($result,$user){
 		$unique_id_comment="show_coment".$row['id_coment'];
 		$output.="<p id='".$unique_id_comment."'>".$row['conted']." ";
 		if(chek_is_my_comment($user,$row['user_id'])){
-		$output.="<img src='style/edit.png'".'height='.'"10"'. ' width="10"'." value='1' onclick='edit(".'"'.$unique_id_comment.'"'.",".'"'.$row['conted'].'"'.")'>";
-		$output.="<img src='style/delet.png'".'height='.'"10"'. ' width="10"'." value='1' onclick='delet(".'"'.$unique_id_comment.'"'.")'>";
+			$output.="<img src='style/edit.png'".'height='.'"10"'. ' width="10"'." value='1' onclick='edit(".'"'.$unique_id_comment.'"'.",".'"'.$row['conted'].'"'.")'>";
+			$output.="<img src='style/delet.png'".'height='.'"10"'. ' width="10"'." value='1' onclick='delet(".'"'.$unique_id_comment.'"'.")'>";
 		}
 		else{
-		$username=fill_username(retrive_user_name($row['user_id']));
-		$output.="  by: ".$username;
+			$username=fill_username(retrive_user_name($row['user_id']));
+			$output.="  by: ".$username;
 		}
 		$output.="</p>";
 	}
@@ -82,13 +82,13 @@ function fill_coments($result,$user){
 function fill_username($result){
 	/*Return first(is unique)*/
 	while($row=mysql_fetch_array($result)){
-	return $row['username'];
+		return $row['username'];
 	}
 }
 function fill_name_city($result){
 	/*Return first(is unique)*/
 	while($row=mysql_fetch_array($result)){
-	return $row['Name_City'];
+		return $row['Name_City'];
 	}
 }
 /*Admin page */
@@ -124,7 +124,7 @@ function check_if_ad_is_reported($id_add,$user_id){
 function check_is_ban($id_user){
 	$result=mysql_fetch_assoc(retrive_check_is_ban($id_user));
 	if($result['count(*)']==0) return false;
-		return true;
+	return true;
 }
 ?>
 

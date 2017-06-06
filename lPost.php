@@ -9,8 +9,9 @@ if (isset($_POST['upload'])) {
     $image = $_FILES['image']['name'];
     $allowed = array('gif', 'png', 'jpg', 'jpeg');
     $type = $_POST['type'];
-    $categori = $_POST['cat'];
+    $categori = $_POST['categori'];
     $user_id = $user_data['user_id'];
+    $city = $_POST['city'];
     echo  $user_id;
     if (!in_array($imageFileType, $allowed)) {
         $isImage = false;
@@ -18,7 +19,7 @@ if (isset($_POST['upload'])) {
     $description = $_POST['description'];
     if (($description == true) && ($isImage == true)) {
         move_uploaded_file($_FILES['image']['tmp_name'], "image/" . $_FILES["image"]["name"]);
-        $query = mysql_real_escape_string(mysql_query("INSERT INTO `lpost` (image, description, type, Id_Categori,user_id) VALUE ('$image', '$description','$type', '$categori','$user_id' )"));
+        $query = mysql_real_escape_string(mysql_query("INSERT INTO `lpost` (image, description, type, Id_Categori,user_id, Id_City) VALUE ('$image', '$description','$type', '$categori','$user_id',' $city ' )"));
         header('Location: lost.php');
         exit();
     } else {
@@ -48,19 +49,19 @@ if (isset($_POST['upload'])) {
 <div class="container">
     <h3 class="titleInsert">Insert your lost announce!</h3>
     <form method="POST" enctype="multipart/form-data">
-        <select name="type" class="selectAnounce">
-            <option value="0">Lost</option>
-            <option value="1">Found</option>
+        <select class="selectAnounce" name="type">
+            <?php echo fill_type_add($connect);?>
+        </select>
+        <br>
+        <select class="selectAnounce" name="city">
+            <?php echo fill_city_add($connect);?>
+        </select>
+        <br>
+        <select class="selectAnounce" name="categori">
+            <?php echo fill_type_categori($connect);?>
         </select>
         <br>
         <input type="file" name="image" class="inputAnounce">
-        <select name="cat" class="selectAnounce">
-            <option value="0">Portofel</option>
-            <option value="1">Telefon</option>
-            <option value="2">Chei</option>
-            <option value="3">Acte</option>
-            <option value="4">Altceva</option>
-        </select>
         <br>
         <textarea name="description" cols="40" rows="4" class="anounceDescription"></textarea>
         <br>
