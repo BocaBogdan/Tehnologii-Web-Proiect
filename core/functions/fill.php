@@ -60,6 +60,7 @@ function fill_coments($result,$user){
 		$output.="<p id='".$unique_id_comment."'>".$row['conted']." ";
 		if(chek_is_my_comment($user,$row['user_id'])){
 		$output.="<img src='style/edit.png'".'height='.'"10"'. ' width="10"'." value='1' onclick='edit(".'"'.$unique_id_comment.'"'.",".'"'.$row['conted'].'"'.")'>";
+		$output.="<img src='style/delet.png'".'height='.'"10"'. ' width="10"'." value='1' onclick='delet(".'"'.$unique_id_comment.'"'.")'>";
 		}
 		else{
 		$username=fill_username(retrive_user_name($row['user_id']));

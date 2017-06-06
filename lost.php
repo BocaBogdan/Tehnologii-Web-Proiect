@@ -95,6 +95,19 @@ function renunta(id_coment,conted){
 
 document.getElementById(id_coment).innerHTML=conted+"<img class='editAnounce' src='style/edit.png' 'height='10' width='10' value='1' onclick='edit("+'"'+id_coment+'"'+","+'"'+conted+'"'+")'>";
 }
+
+function delet(id_comment){
+	var unique_id_coment=id_comment.substring(11,id_comment.length);
+	$.ajax({
+		url:"core/action_add.php",
+		method:"POST",
+		data:{Id_Commment_Delet:unique_id_coment},
+		success:function(data){
+			$('#'+id_comment+'').html(data);
+		}
+	});
+//alert("vreau sa sterg:"+unique_id_coment);
+}
 </script>
 
 <script>
