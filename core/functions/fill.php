@@ -35,7 +35,9 @@ function fill_ads($connect,$user){
 function simple_fill($result,$user){
 	$output='';
 	while($row=mysql_fetch_array($result)){
-		$output.="<div id='element'>";
+		$output.="<div class='element' id='show_add".$row['lpost_id']."'>";
+		$unique_id_post="show_add".$row['lpost_id'];
+		$output.="<button type='submit' onclick='deletAddPost(".'"'.$unique_id_post.'"'.")'>X</button>";
 		$output.="<div><img id='anouncePhoto' src='image/".$row['image'] ."' />";
 		$output.="<p id='anounceDescription'>" . $row['description'] . "</p></div>";
 		/*aici o sa contina orasul si data*/

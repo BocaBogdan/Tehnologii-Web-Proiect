@@ -110,6 +110,17 @@ function delet(id_comment){
 	});
 //alert("vreau sa sterg:"+unique_id_coment);
 }
+function deletAddPost(show_add){
+	var unique_id_post=show_add.substring(8,show_add.length);
+	$.ajax({
+		url:"core/action_add.php",
+		method:"POST",
+		data:{Id_Post_delet:unique_id_post},
+		success:function(data){
+			$('#'+show_add+'').html(data);
+		}
+	});
+}
 </script>
 
 <script>
