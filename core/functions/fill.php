@@ -97,7 +97,16 @@ function fill_user_list(){
 	$output='';
 	$output.="<div id='show_users'>";
 	while($row=mysql_fetch_array($result)){
+		$unique_user_id="show_user".$row['user_id'];
+		$output.="<div id='".$unique_user_id.">";
 		$output.="<p id='".$row['user_id']."'>".$row['username']."</p> ";
+		if(!check_is_ban($row['user_id'])){
+			$output.="<button type='submit' onclick='disable_user(".'"'.$unique_user_id.'"'.")'>Ban this User</button>";
+		}
+		else{
+			$output.="<button type='submit' onclick='unable_user(".'"'.$unique_user_id.'"'.")'>Un ban this User</button>";
+		}
+		$output.="</div>";
 	}
 	$output.="</div>";
 	return $output;
@@ -111,6 +120,11 @@ function check_if_ad_is_reported($id_add,$user_id){
 	$result=mysql_fetch_assoc(retrive_check_report($id_add,$user_id));
 	if($result['count(*)']==0) return true;
 	return false;
+}
+function check_is_ban($id_user){
+	$result=mysql_fetch_assoc(retrive_check_is_ban($id_user));
+	if($result['count(*)']==0) return false;
+		return true;
 }
 ?>
 
