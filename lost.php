@@ -119,7 +119,7 @@ if (isset($_POST['comment'])) {
             method: "POST",
             data: {Id_Post_delet: unique_id_post},
             success: function (data) {
-                $('#' + show_add + '').html(data);
+               $('#show_add'+unique_id_post.toString()).load("lost.php #show_add"+unique_id_post.toString());
             }
         });
     }
@@ -129,7 +129,8 @@ if (isset($_POST['comment'])) {
             method:"POST",
             data:{Id_Add_Report:id_add},
             success:function(data){
-                $('#element').html(data);
+                $('#show_add'+id_add.toString()).load("lost.php #show_add"+id_add.toString());
+                
             }
         });
     }

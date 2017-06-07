@@ -69,9 +69,9 @@ if (isset($_POST['days'])) {
             method:"POST",
             data:{User_Disable:unique_user_id},
             success:function(data){
-                //$('#'+show_user+'').html(data);
-                $('#show_user'+unique_user_id).html(data);
-                alert('#show_user'+unique_user_id);
+                //alert(unique_user_id);
+               // alert('#'+show_user.toString());
+               $('#'+show_user.toString()).load("admin.php #"+show_user.toString());
             }
         });
     }
@@ -82,8 +82,8 @@ if (isset($_POST['days'])) {
             method:"POST",
             data:{User_Unable:unique_user_id},
             success:function(data){
-                $('#show_user'+unique_user_id).html(data);
-                alert('#show_user'+unique_user_id);
+                //alert('#'+show_user.toString());
+                $('#show_user'+unique_user_id.toString()).load("admin.php #show_user"+unique_user_id.toString());
             }
         });
     }

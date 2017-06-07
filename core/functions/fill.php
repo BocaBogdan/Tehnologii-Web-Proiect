@@ -108,7 +108,7 @@ function fill_user_list(){
 	$output.="<div id='show_users'>";
 	while($row=mysql_fetch_array($result)){
 		$unique_user_id="show_user".$row['user_id'];
-		$output.="<div id='".$unique_user_id.">";
+		$output.="<div id='".$unique_user_id."''>";
 		$output.="<p id='".$row['user_id']."'>".$row['username']."</p> ";
 		if(!check_is_ban($row['user_id'])){
 			$output.="<button type='submit' onclick='disable_user(".'"'.$unique_user_id.'"'.")'>Ban this User</button>";
