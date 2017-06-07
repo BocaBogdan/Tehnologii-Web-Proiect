@@ -32,6 +32,12 @@ function fill_ads($connect,$user){
 	return simple_fill($result,$user);
 }
 
+function fill_search($text, $user){
+	$query = "SELECT * FROM `lpost` WHERE description LIKE replace('%" . $text . "%',' ', '%' ) ";
+	$result = mysql_query($query);
+	return simple_fill($result,$user);
+}
+
 function simple_fill($result,$user){
 	$output='';
 	while($row=mysql_fetch_array($result)){
@@ -111,6 +117,7 @@ function fill_user_list(){
 	$output.="</div>";
 	return $output;
 }
+
 
 function chek_is_my_comment($user_id_session,$user_id_comment){
 	if($user_id_session==$user_id_comment) return true;
