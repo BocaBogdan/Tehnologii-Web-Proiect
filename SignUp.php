@@ -79,7 +79,7 @@ if (isset($_GET['success']) && empty($_GET['success'])){
         <input class="input" type="email" placeholder="email" name="email"></input>
         <br>
         <button class="button" type="submit" value="Register">Submit</button>
-        <!--<button class="facebook">Login with Facebook</button>-->
+		<a href="index.php" class="signUp">Login</a>
     </form>
 </div>
 </body>

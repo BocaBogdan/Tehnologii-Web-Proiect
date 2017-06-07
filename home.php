@@ -29,11 +29,10 @@ if(isset($_POST['comment'])){
     ?>
     <a href="logout.php" class="navButton navText">Log Out</a>
     <a href="changepassword.php" class="navButton navText">Change password</a>
-    <a href="<?php echo $user_data['username']; ?>" class="navButton">Profile</a>
     <a href="lost.php" class="homeNavButton navText">Home</a>
 </nav>
 <div class="container">
-	<p>Anunturile mele</p>
+	<p class="homeText">Anunturile mele</p>
 	<?php echo get_my_adds($user_data['user_id']); ?>
 </div>
 </body>

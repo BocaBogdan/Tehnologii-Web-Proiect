@@ -46,24 +46,42 @@
     cursor: pointer;
 }
 
-.button {
+.button  {
     margin-top: 4%;
     margin-bottom: 5%;
-    margin-left: 11%;
-    width: 78%;
+    margin-left: 15%;
+    width: 200px;
     height: 50px;
     color: black;
     font-family: inherit;
     font-size: 30px;
     border-radius: 10px;
+    border-style: none;
 }
 
-.button:hover {
+.signUp{
+    margin-top: 4%;
+    margin-bottom: 5%;
+    margin-left: 10%;
+    width: 100px;
+    height: 50px;
     color: black;
+    font-family: inherit;
+    font-size: 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: rgb(240, 240, 240);
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+}
+
+.button:hover, .signUp:hover {
     background-color: grey;
-    border: none;
     cursor: pointer;
 }
+
 
 .facebook {
     color: #FFFFFF;
@@ -142,7 +160,7 @@
     font-size: 18px;
     font-weight: 500;
     background-color: #ffffff;
-    margin-left: 150px;
+    margin-left: 100px;
     margin-top: 20px;
     margin-bottom: 20px;
     padding-left: 10px;
@@ -265,6 +283,17 @@
     text-shadow: 5px 5px 5px #888888; ;
 }
 
+.homeText {
+    background-color: transparent;
+    font-family: "Comic Sans MS";
+    font-size: 36px;
+    color: #003d76;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40%;
+    font-weight: bold;
+}
+
 .navText:hover{
     opacity: 0.75;
     text-shadow: 5px 5px 5px #888888; ;
@@ -361,4 +390,38 @@
 #show_coments {
     font-family: "Times New Roman", serif;
     font-size: 18px;
+}
+
+#show_users {
+    font-family: "Times New Roman", serif;
+    font-size: 28px;
+    padding-left: 20%;
+    padding-top: 15px;
+    color: #003366;
+}
+
+.search {
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+    width: 200px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 10px;
+    box-shadow: 10px 5px 5px #696969;
+}
+
+.searchButton {
+    background-image: url("search.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-color: #FFFFFF;
+    border-style: none;
+    border-radius: 0px 5px 5px 0px;
+    padding-top: 10px;
+    padding-left: 10px;
+    box-shadow: 10px 5px 5px #696969;
+    cursor: pointer;
 }
