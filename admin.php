@@ -16,17 +16,10 @@ if (isset($_POST['days'])) {
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
-	<title>Home Page</title>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="style/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
-=======
     <title>Home Page</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
->>>>>>> dbad864cbd26c9a09f58fcb74aa04cf05400fa5c
 </head>
 <body>
 <nav class="navbar">
@@ -97,33 +90,3 @@ if (isset($_POST['days'])) {
 </script>
 </body>
 </html>
-<<<<<<< HEAD
-<script type="text/javascript">
-	function disable_user(show_user){
-	var unique_user_id=show_user.substring(9,show_user.length);
-	$.ajax({
-		url:"core/action_add.php",
-		method:"POST",
-		data:{User_Disable:unique_user_id},
-		success:function(data){
-		//$('#'+show_user+'').html(data);
-		$('#show_user'+unique_user_id).html(data);
-		alert('#show_user'+unique_user_id);
-		}
-	});
-}
-function unable_user(show_user){
-	var unique_user_id=show_user.substring(9,show_user.length);
-	$.ajax({
-		url:"core/action_add.php",
-		method:"POST",
-		data:{User_Unable:unique_user_id},
-		success:function(data){
-		$('#show_user'+unique_user_id).html(data);
-		alert('#show_user'+unique_user_id);
-		}
-	});
-}
-</script>
-=======
->>>>>>> dbad864cbd26c9a09f58fcb74aa04cf05400fa5c

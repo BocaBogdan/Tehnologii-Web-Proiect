@@ -43,7 +43,11 @@ function simple_fill($result,$user){
 	while($row=mysql_fetch_array($result)){
 		$output.="<div class='element' id='show_add".$row['lpost_id']."'>";
 		$unique_id_post="show_add".$row['lpost_id'];
+		if(chek_is_my_post($user,$row['user_id'])){
 		$output.="<button type='submit' onclick='deletAddPost(".'"'.$unique_id_post.'"'.")'>X</button>";
+		}else{
+		$output.=""	;
+		}
 		$output.="<div><img id='anouncePhoto' src='image/".$row['image'] ."' />";
 		if(check_if_ad_is_reported($row['lpost_id'],$user)){
 			$output.="<button type='button'onclick='report_add(".'"'.$row['lpost_id'].'"'.")'>Report</button>";}
@@ -123,13 +127,6 @@ function chek_is_my_comment($user_id_session,$user_id_comment){
 	if($user_id_session==$user_id_comment) return true;
 	return false;
 }
-<<<<<<< HEAD
-
-function check_is_ban($id_user){
-	$result=mysql_fetch_assoc(retrive_check_is_ban($id_user));
-	if($result['count(*)']==0) return false;
-		return true;
-=======
 function check_if_ad_is_reported($id_add,$user_id){
 	$result=mysql_fetch_assoc(retrive_check_report($id_add,$user_id));
 	if($result['count(*)']==0) return true;
@@ -139,7 +136,10 @@ function check_is_ban($id_user){
 	$result=mysql_fetch_assoc(retrive_check_is_ban($id_user));
 	if($result['count(*)']==0) return false;
 	return true;
->>>>>>> dbad864cbd26c9a09f58fcb74aa04cf05400fa5c
+}
+function chek_is_my_post($user_id_session,$lpost_id){
+	if($user_id_session==$lpost_id) return true;
+	return false;
 }
 ?>
 

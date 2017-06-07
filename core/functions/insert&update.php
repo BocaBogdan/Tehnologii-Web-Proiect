@@ -13,13 +13,9 @@ function update_comment($id_comment,$conted){
 	
 	mysql_real_escape_string(mysql_query("UPDATE `comments` SET conted ='$conted' WHERE id_coment='$id_comment'"));
 }
-<<<<<<< HEAD
-
-=======
 function insert_report($id_add,$id_user){
 	mysql_real_escape_string(mysql_query("INSERT INTO `reports` (Id_Add,user_id) VALUE ('$id_add', '$id_user')"));
 }
->>>>>>> dbad864cbd26c9a09f58fcb74aa04cf05400fa5c
 function disable_user($user_id){
 	mysql_real_escape_string(mysql_query("UPDATE `users` SET active = 0 WHERE user_id='$user_id'"));
 }

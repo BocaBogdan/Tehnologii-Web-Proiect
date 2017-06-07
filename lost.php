@@ -111,24 +111,28 @@ if (isset($_POST['comment'])) {
             }
         });
 //alert("vreau sa sterg:"+unique_id_coment);
-<<<<<<< HEAD
-}
-function deletAddPost(show_add){
-	var unique_id_post=show_add.substring(8,show_add.length);
-	$.ajax({
-		url:"core/action_add.php",
-		method:"POST",
-		data:{Id_Post_delet:unique_id_post},
-		success:function(data){
-			$('#'+show_add+'').html(data);
-		}
-	});
-}
-
-
-=======
     }
->>>>>>> dbad864cbd26c9a09f58fcb74aa04cf05400fa5c
+    function deletAddPost(show_add) {
+        var unique_id_post = show_add.substring(8, show_add.length);
+        $.ajax({
+            url: "core/action_add.php",
+            method: "POST",
+            data: {Id_Post_delet: unique_id_post},
+            success: function (data) {
+                $('#' + show_add + '').html(data);
+            }
+        });
+    }
+    function report_add(id_add){
+        $.ajax({
+            url:"core/action_add.php",
+            method:"POST",
+            data:{Id_Add_Report:id_add},
+            success:function(data){
+                $('#element').html(data);
+            }
+        });
+    }
 </script>
 
 <script>
@@ -198,4 +202,5 @@ function deletAddPost(show_add){
             });
         });
     });
+
 </script>
