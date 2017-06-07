@@ -84,4 +84,8 @@ function retrive_city_add($id_city){
 	$sql="SELECT * FROM cities where Id_City='".$id_city."'";
 	return mysql_query($sql);
 }
+function retrive_check_is_ban($id_user){
+	$sql="SELECT count(*) FROM users where user_id='$id_user' and active=0";
+	return mysql_query($sql);
+}
 ?>

@@ -121,6 +121,8 @@ function deletAddPost(show_add){
 		}
 	});
 }
+
+
 </script>
 
 <script>

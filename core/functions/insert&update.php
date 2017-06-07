@@ -13,4 +13,11 @@ function update_comment($id_comment,$conted){
 	
 	mysql_real_escape_string(mysql_query("UPDATE `comments` SET conted ='$conted' WHERE id_coment='$id_comment'"));
 }
+
+function disable_user($user_id){
+	mysql_real_escape_string(mysql_query("UPDATE `users` SET active = 0 WHERE user_id='$user_id'"));
+}
+function unable_user($user_id){
+	mysql_real_escape_string(mysql_query("UPDATE `users` SET active = 1 WHERE user_id='$user_id'"));
+}
 ?>
